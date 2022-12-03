@@ -1,6 +1,6 @@
 #Advent of Code 2022
 #Author: Joseph Scott
-#Date: 12/1/2022
+#Date: 12/3/2022
 
 #Read through all the data and computer total calorie by elf
 $data = Get-Content "Day 3 - Input.txt"

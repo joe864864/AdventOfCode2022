@@ -1,6 +1,6 @@
 #Advent of Code 2022
 #Author: Joseph Scott
-#Date: 12/1/2022
+#Date: 12/2/2022
 
 #Read through all the data and computer total calorie by elf
 $strat = Get-Content "Day 2 - Input.txt"
