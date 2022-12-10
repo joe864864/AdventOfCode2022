@@ -3,7 +3,7 @@
 #Date: 12/6/2022
 
 #Read through all the data and computer total calorie by elf
-$data = Get-Content "Day 5 - Test Input.txt"
+$data = Get-Content "Day 5 - Input.txt"
 
 #read in crates as hashtable of strings
 
@@ -59,14 +59,19 @@ foreach($line in $data){
     if($line[0] -eq "m"){
         $tempArray = $line.split(" ")
 
-        #for($i=[int]$tempArray[1];$i-gt0;$i--){
-        for($i=0;$i-lt$tempArray[1];$i++){
-            #$stacksArray[$tempArray[5]-1][$numStacksArray[$tempArray[5]-1]] = $stacksArray[$tempArray[3]-1][$numStacksArray[$tempArray[3]-1]-1]
-            $stacksArray[$tempArray[5]-1][$numStacksArray[$tempArray[5]-1]+(([int]$tempArray[1]-1)-$i)] = $stacksArray[$tempArray[3]-1][$numStacksArray[$tempArray[3]-1]-1]
-            $stacksArray[$tempArray[3]-1][$numStacksArray[$tempArray[3]-1]-1] = ""
+        $height = $numStacksArray[$tempArray[3]-1]
+        $start = $height - $tempArray[1]
+        while ($start-lt$height) {
+            $stacksArray[$tempArray[5]-1][$numStacksArray[$tempArray[5]-1]] = $stacksArray[$tempArray[3]-1][$start]
+            $stacksArray[$tempArray[3]-1][$start] = ""
             $numStacksArray[$tempArray[5]-1] += 1
             $numStacksArray[$tempArray[3]-1] -= 1
+            $start++
         }
+        #$stacksArray[$tempArray[5]-1][$numStacksArray[$tempArray[5]-1]] = $stacksArray[$tempArray[3]-1][$numStacksArray[$tempArray[3]-1]-1]
+        #$stacksArray[$tempArray[3]-1][$numStacksArray[$tempArray[3]-1]-1] = ""
+        #$numStacksArray[$tempArray[5]-1] += 1
+        #$numStacksArray[$tempArray[3]-1] -= 1
     }
 }
 
